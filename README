@@ -1,6 +1,9 @@
 Téléchargez le fichier de configuration sur votre raspberry à l’aide de :
 
-wget https://github.com/dmckminard/kardeur.io/blob/main/hats/install_dac_hat.py
+sudo apt-get install git
+git clone https://github.com/kardeur/KAR-DAC-ADC.git
+cd KAR-DAC-ADC/
+
 Faites entrer votre module en mode configuration en connectant le jumper fourni (?) sur les pins prévues à cet effet.
 
 Une fois la manipulation effectuée, lancez le fichier de configuration.
