@@ -37,7 +37,7 @@ else :
         file.write(filedata)
     file.close()
 # EST-CE QUON DOIT REBOOT ???? A TEST
-    subprocess.call(["amixer", "set", "'Master'", "100", "unmute")]
-    subprocess.call(["amixer", "set", "'Output Mixer HiFi'", "unmute")]
-    subprocess.call(["sudo", "alsactl", "store")]
+    subprocess.call(["amixer", "set", "'Master'", "100", "unmute"])
+    subprocess.call(["amixer", "set", "'Output Mixer HiFi'", "unmute"])
+    subprocess.call(["sudo", "alsactl", "store"])
     exit()
