@@ -38,6 +38,7 @@ amixer set 'Output Mixer HiFi' unmute
 sudo alsactl store
 ```
 
+
 ## Testez votre installation - *Test your installation*
 
 Vous pouvez enfin tester votre carte son à l’aide de la commande suivante :
@@ -51,6 +52,9 @@ speaker-test -c2 -t wav
 Si vous entendez quelque chose, tout est ok !
 
 *- If you hear something, everything is ok!*
+
+
+
 
 
 
