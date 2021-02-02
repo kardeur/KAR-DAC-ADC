@@ -74,8 +74,8 @@ Ouvrez le fichier `/boot/config.txt` et ajoutez la ligne suivante :
 dtparam=i2c_vc=on
 ```
 
-Téléchargez le fichier de configuration sur votre raspberry à l’aide de :
-*- Download the configuration file to your raspberry using :*
+Clonez le répertoire officiel d'EEPROM Raspberry :
+*- Clone the official Raspberry EEPROM directory :*
 
 ```bash
 sudo apt-get install git
@@ -83,18 +83,33 @@ git clone https://github.com/kardeur/KAR-DAC-ADC.git
 cd KAR-DAC-ADC/
 ```
 
+Clonez le répertoire EEPROM KAR-DAR/ADC :
+*- Clone the KAR-DAR/ADC EEPROM directory :*
+
+```bash
+sudo apt-get install git
+git clone https://github.com/raspberrypi/hats
+cd hats/eepromutils
+make
+```
+
 _Faites entrer votre module en mode configuration en connectant un jumper sur les pins prévues à cet effet._
 *- _Bring your module into configuration mode by connecting a jumper to the pins provided for this purpose._*
 
-Une fois la manipulation effectuée, lancez le fichier de configuration.
-*- Once this is done, run the configuration file.*
+Créez le fichier de configuration kardac-eeprom.eep :
+*- Create the configuration file kardac-eeprom.eep*
 
 ```bash
-sudo python3 install_eeprom.py
+./eepmake ../../KAR-DAC-ADC/kardac_eeprom.txt kardac_eeprom.eep /boot/overlays/rpi-proto.dtbo
 ```
 
-Une confirmation vous sera demandé, indiquez simplement « yes ».
-*- You will be asked for confirmation, simply indicate "yes".*
+Flashez votre système Raspberry à l'aide du fichier qui vient d'être configuré :
+*- Flash your Raspberry system using the file that has just been configured*
+
+```bash
+sudo ./eepflash.sh -w -f=kardac_eeprom.eep -t=24c32
+```
+
 
 
 ## En savoir plus
