@@ -90,7 +90,7 @@ Une fois la manipulation effectuée, lancez le fichier de configuration.
 *- Once this is done, run the configuration file.*
 
 ```bash
-sudo python3 install_dac_hat.py
+sudo python3 install_eeprom.py
 ```
 
 Une confirmation vous sera demandé, indiquez simplement « yes ».
