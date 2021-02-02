@@ -25,6 +25,8 @@ if "sndrpiproto" in aplay_output :
     print ("\n")
     exit()
 else :
+    print (" - Avant de commencer, assurez-vous de relier les jumpers H1 de votre carte ensemble. - ")
+    print (" - Before you start, be sure to connect the H1 jumpers on your card together. - ")
     subprocess.call(["sudo", "apt-get", "install", "git", "-y"])
     subprocess.call(["git", "clone", "https://github.com/raspberrypi/hats"])
     subprocess.call(["git", "clone", "https://github.com/skiselev/i2s_audio_phat"])
