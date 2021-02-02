@@ -29,9 +29,8 @@ else :
     print (" - Before you start, be sure to connect the H1 jumpers on your card together. - ")
     subprocess.call(["sudo", "apt-get", "install", "git", "-y"])
     subprocess.call(["git", "clone", "https://github.com/raspberrypi/hats"])
-    subprocess.call(["git", "clone", "https://github.com/skiselev/i2s_audio_phat"])
-    subprocess.call(['./hats/eepromutils/eepmake i2s_audio_phat/eeprom_settings_i2s_audio_phat.txt i2s_audio_phat.eep /boot/overlays/rpi-proto.dtbo'], shell=True)
-    subprocess.call(['sudo ./hats/eepromutils/eepflash.sh -w -f=i2s_audio_phat.eep -t=24c32'], shell=True)
+    subprocess.call(['./hats/eepromutils/eepmake kardac_eeprom.txt kardac_eeprom.eep /boot/overlays/rpi-proto.dtbo'], shell=True)
+    subprocess.call(['sudo ./eepflash.sh -w -f=kardac_eeprom.eep -t=24c32'], shell=True)
     with open('/boot/config.txt', 'r') as file :
         filedata = file.read()
     filedata = filedata.replace('dtparam=audio=on', '#dtparam=audio=on')
