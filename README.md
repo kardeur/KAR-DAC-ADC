@@ -1,25 +1,84 @@
-Téléchargez le fichier de configuration sur votre raspberry à l’aide de :
+# Kar-DAC-ADC
 
-sudo apt-get install git
-git clone https://github.com/kardeur/KAR-DAC-ADC.git
-cd KAR-DAC-ADC/
+Installation du Hat Raspberry KAR-DAC/ADC
 
-Méthode d'installation classique : 
+## Méthode d'installation classique - *Conventional installation method*
 
+Ouvrez le fichier /boot/config.txt avec votre éditeur favori :
 
-Faites entrer votre module en mode configuration en connectant un jumper sur les pins prévues à cet effet.
+*- Open the file /boot/config.txt with your favorite editor :*
 
-Une fois la manipulation effectuée, lancez le fichier de configuration.
+```bash
+sudo nano /boot/config.txt
+```
 
-sudo python3 install_dac_hat.py
+Commentez le paramètre `dtparam=audio=on` et ajoutez les lignes nécessaires à l'initialisation de KAR-DAC/ADC :
 
-Une confirmation vous sera demandé, indiquez simplement « yes ».
+*- Comment the parameter `dtparam=audio=on` and add the necessary lines to initialize KAR-DAC/ADC :*
+
+```bash
+# Enable audio (loads snd_bcm2835)
+#dtparam=audio=on
+
+# KAR-DAC/ADC
+dtparam=i2c_arm=on
+dtparam=i2s=on
+dtoverlay=i2s-mmap
+dtoverlay=rpi-proto
+```
+
+Sauvegardez les modifications, et redémarrez votre système.
+Activez la sortie son de votre KAR-DAC/ADC à l'aide de la commande suivante, et sauvegardez vos paramètres :
+
+*- Save the changes, and restart your system.
+Activate the sound output of your KAR-DAC/ADC with the following command, and save your settings:*
+
+```bash
+amixer set 'Output Mixer HiFi' unmute
+sudo alsactl store
+```
+
+## Testez votre installation - *Test your installation*
 
 Vous pouvez enfin tester votre carte son à l’aide de la commande suivante :
 
+*- Finally, you can test your sound card with the following command:*
+
+```bash
 speaker-test -c2 -t wav
+```
 
 Si vous entendez quelque chose, tout est ok !
 
+*- If you hear something, everything is ok!*
 
-Découvrez plus de tutoriels sur https://kardeur.io/tutoriels/
+
+
+## Installation par EEPROM (Avancé) - *Installation by EEPROM (Expert)*
+
+Téléchargez le fichier de configuration sur votre raspberry à l’aide de :
+*- Download the configuration file to your raspberry using :*
+
+```bash
+sudo apt-get install git
+git clone https://github.com/kardeur/KAR-DAC-ADC.git
+cd KAR-DAC-ADC/
+```
+
+_Faites entrer votre module en mode configuration en connectant un jumper sur les pins prévues à cet effet._
+*- _Bring your module into configuration mode by connecting a jumper to the pins provided for this purpose._*
+
+Une fois la manipulation effectuée, lancez le fichier de configuration.
+*- Once this is done, run the configuration file.*
+
+```bash
+sudo python3 install_dac_hat.py
+```
+
+Une confirmation vous sera demandé, indiquez simplement « yes ».
+*- You will be asked for confirmation, simply indicate "yes".*
+
+
+## En savoir plus
+
+Découvrez plus de tutoriels sur [kardeur.io](https://kardeur.io/tutoriels/).
