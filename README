@@ -4,7 +4,10 @@ sudo apt-get install git
 git clone https://github.com/kardeur/KAR-DAC-ADC.git
 cd KAR-DAC-ADC/
 
-Faites entrer votre module en mode configuration en connectant le jumper fourni (?) sur les pins prévues à cet effet.
+Méthode d'installation classique : 
+
+
+Faites entrer votre module en mode configuration en connectant un jumper sur les pins prévues à cet effet.
 
 Une fois la manipulation effectuée, lancez le fichier de configuration.
 
