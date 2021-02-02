@@ -4,9 +4,9 @@ Installation du Hat Raspberry KAR-DAC/ADC
 
 ## Méthode d'installation classique - *Conventional installation method*
 
-Ouvrez le fichier /boot/config.txt avec votre éditeur favori :
+Ouvrez le fichier `/boot/config.txt` avec votre éditeur favori :
 
-*- Open the file /boot/config.txt with your favorite editor :*
+*- Open the file `/boot/config.txt` with your favorite editor :*
 
 ```bash
 sudo nano /boot/config.txt
@@ -59,6 +59,20 @@ Si vous entendez quelque chose, tout est ok !
 
 
 ## Installation par EEPROM (Avancé) - *Installation by EEPROM (Expert)*
+
+N'utilisez cette méthode que si vous disposez de connaissances avancées en systèmes Raspberry.
+Cette méthode doit uniquement être utilisée si la méthode énoncée plus haut n'a pas été suivie.
+
+*- Use this method only if you have advanced knowledge of Raspberry systems.
+This method should only be used if the above method has not been followed.*
+
+Ouvrez le fichier `/boot/config.txt` et ajoutez la ligne suivante :
+
+*- Open the file `/boot/config.txt` and add the following line :*
+
+```bash
+dtparam=i2c_vc=on
+```
 
 Téléchargez le fichier de configuration sur votre raspberry à l’aide de :
 *- Download the configuration file to your raspberry using :*
