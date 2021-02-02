@@ -75,6 +75,7 @@ dtparam=i2c_vc=on
 ```
 
 Clonez le répertoire officiel d'EEPROM Raspberry :
+
 *- Clone the official Raspberry EEPROM directory :*
 
 ```bash
@@ -84,6 +85,7 @@ cd KAR-DAC-ADC/
 ```
 
 Clonez le répertoire EEPROM KAR-DAR/ADC :
+
 *- Clone the KAR-DAR/ADC EEPROM directory :*
 
 ```bash
@@ -94,9 +96,11 @@ make
 ```
 
 _Faites entrer votre module en mode configuration en connectant un jumper sur les pins prévues à cet effet._
+
 *- _Bring your module into configuration mode by connecting a jumper to the pins provided for this purpose._*
 
 Créez le fichier de configuration kardac-eeprom.eep :
+
 *- Create the configuration file kardac-eeprom.eep*
 
 ```bash
@@ -104,6 +108,7 @@ Créez le fichier de configuration kardac-eeprom.eep :
 ```
 
 Flashez votre système Raspberry à l'aide du fichier qui vient d'être configuré :
+
 *- Flash your Raspberry system using the file that has just been configured*
 
 ```bash
